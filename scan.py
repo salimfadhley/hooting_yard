@@ -1,5 +1,3 @@
-import os
-import subprocess
 from git import Repo
 
 def main():
@@ -11,13 +9,9 @@ def main():
     for f in repo.untracked_files:
         if f.endswith(".mp3"):
             print(f)
-
             repo.index.add([f])
-
             repo.index.commit(f"Automatically added {f}.")
-
-
-            break
+            origin.push()
 
 if __name__ == "__main__":
     main()
